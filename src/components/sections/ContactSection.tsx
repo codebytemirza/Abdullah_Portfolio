@@ -5,27 +5,44 @@ import SectionWrapper from '@/components/SectionWrapper';
 import { portfolioConfig, socialIcons } from '@/config/portfolio';
 
 export default function ContactSection() {
+  const firstPostUrn = "7256301017066074112"; // Existing post
+  const secondPostUrn = "7308550922782056449"; // New post from user request
+
   return (
     <SectionWrapper id="contact" className="bg-background">
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">Stay Connected</h2>
         <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-          Check out my latest LinkedIn post below, or connect with me through other channels.
+          Check out my latest LinkedIn posts below, or connect with me through other channels.
         </p>
       </div>
       <div className="max-w-2xl mx-auto">
-        {/* LinkedIn Embed */}
-        <div className="mb-12 flex justify-center">
-          <iframe 
-            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7256301017066074112" 
-            height="700" // Adjusted height for better page fit
-            width="504" // Max width of the embed
-            frameBorder="0" 
-            allowFullScreen={true}
-            title="Embedded post"
-            className="max-w-full w-[504px] rounded-lg shadow-xl border border-border/50"
-            style={{maxWidth: '504px', width: '100%'}} // Ensures responsiveness
-          ></iframe>
+        {/* LinkedIn Embeds */}
+        <div className="mb-12 flex flex-col items-center space-y-8">
+          <div className="w-full flex justify-center">
+            <iframe 
+              src={`https://www.linkedin.com/embed/feed/update/urn:li:share:${secondPostUrn}`}
+              height="650" // Adjusted height for better page fit
+              width="504" // Max width of the embed
+              frameBorder="0" 
+              allowFullScreen={true}
+              title="Embedded LinkedIn Post 2"
+              className="max-w-full w-[504px] rounded-lg shadow-xl border border-border/50"
+              style={{maxWidth: '504px', width: '100%'}} // Ensures responsiveness
+            ></iframe>
+          </div>
+          <div className="w-full flex justify-center">
+            <iframe 
+              src={`https://www.linkedin.com/embed/feed/update/urn:li:share:${firstPostUrn}`}
+              height="650" // Adjusted height for better page fit
+              width="504" // Max width of the embed
+              frameBorder="0" 
+              allowFullScreen={true}
+              title="Embedded LinkedIn Post 1"
+              className="max-w-full w-[504px] rounded-lg shadow-xl border border-border/50"
+              style={{maxWidth: '504px', width: '100%'}} // Ensures responsiveness
+            ></iframe>
+          </div>
         </div>
 
         <div className="text-center">
@@ -61,3 +78,4 @@ export default function ContactSection() {
     </SectionWrapper>
   );
 }
+
