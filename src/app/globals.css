@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,54 +9,53 @@ body {
 
 @layer base {
   :root {
-    --background: 224 71.4% 4.1%; /* Very dark blue, almost black */
-    --foreground: 210 20% 98%; /* Light gray, almost white */
+    --background: 220 4% 6%; /* Very dark, almost black, slightly cool */
+    --foreground: 0 0% 96%; /* Off-white */
 
-    --card: 220 15% 12%; /* Slightly lighter dark for cards */
-    --card-foreground: 210 20% 98%;
+    --card: 220 4% 9%; /* Slightly lighter dark for cards */
+    --card-foreground: 0 0% 96%;
 
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 220 4% 6%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 180 70% 38%; /* Teal */
-    --primary-foreground: 180 100% 95%; /* Light Teal/White for text on primary */
+    --primary: 180 75% 50%; /* Bright cyan/teal */
+    --primary-foreground: 180 100% 95%; /* Light cyan/White for text on primary */
 
-    --secondary: 215 27.9% 16.9%; /* Dark blue-gray */
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 220 4% 12%; /* Darker grey for less emphasis backgrounds */
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%; /* Grayer */
+    --muted: 220 4% 15%;
+    --muted-foreground: 220 5% 60%; /* Greyer text */
 
-    --accent: 180 80% 33%; /* Teal accent - slightly adjusted for visibility */
-    --accent-foreground: 180 100% 95%; /* Light Teal/White for text on accent */
+    --accent: 330 80% 60%; /* Bright pink/magenta */
+    --accent-foreground: 330 100% 95%; /* Light pink/White for text on accent */
 
-    --destructive: 0 72.2% 50.6%; /* Brighter red for dark theme */
+    --destructive: 0 70% 55%; /* Brighter red for dark theme */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 20% 25%; /* Darker border */
-    --input: 215 27.9% 16.9%;
-    --ring: 180 80% 45%; /* Brighter Teal for focus rings */
+    --border: 220 4% 18%; /* Slightly visible border on the dark theme */
+    --input: 220 4% 12%;
+    --ring: 180 75% 55%; /* Cyan/teal for focus rings */
 
     --chart-1: 180 70% 50%;
     --chart-2: 190 60% 45%;
-    --chart-3: 200 80% 55%;
+    --chart-3: 330 70% 55%; /* Using accent pink for one chart color */
     --chart-4: 170 65% 60%;
-    --chart-5: 160 75% 55%;
+    --chart-5: 210 50% 50%; /* A contrasting blue */
 
     --radius: 0.5rem;
 
     /* Sidebar specific theme variables for dark mode */
-    --sidebar-background: 220 15% 9%; /* Slightly different dark for sidebar */
-    --sidebar-foreground: 210 30% 90%;
-    --sidebar-primary: 180 70% 38%; /* Teal */
+    --sidebar-background: 220 4% 5%; /* Even darker, or same as main bg */
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 180 75% 50%; /* Cyan/Teal */
     --sidebar-primary-foreground: 180 100% 95%;
-    --sidebar-accent: 180 80% 33%; /* Teal - hover */
-    --sidebar-accent-foreground: 180 100% 95%;
-    --sidebar-border: 220 15% 18%;
-    --sidebar-ring: 180 80% 45%;
+    --sidebar-accent: 330 80% 60%; /* Pink/Magenta - hover */
+    --sidebar-accent-foreground: 330 100% 95%;
+    --sidebar-border: 220 4% 15%;
+    --sidebar-ring: 180 75% 55%;
   }
 
-  /* Ensure html is dark by default. If a light mode is ever needed, a .light class could be added. */
   html {
     scroll-behavior: smooth;
   }
@@ -69,3 +69,5 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+    

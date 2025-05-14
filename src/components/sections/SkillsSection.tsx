@@ -1,10 +1,12 @@
+
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import SectionWrapper from '@/components/SectionWrapper';
 import { portfolioConfig } from '@/config/portfolio';
-import { CheckCircle } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import { CheckCircle } from 'lucide-react'; // Default icon
 
 export default function SkillsSection() {
   return (
@@ -16,26 +18,31 @@ export default function SkillsSection() {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {portfolioConfig.skills.map((skillCategory) => (
-          <Card key={skillCategory.category} className="shadow-xl hover:shadow-2xl transition-shadow duration-300 border-border/50">
-            <CardHeader>
-              <CardTitle className="flex items-center text-xl text-primary">
-                <CheckCircle className="mr-2 h-6 w-6 text-accent" /> 
-                {skillCategory.category}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {skillCategory.items.map((skill) => (
-                  <Badge key={skill} variant="secondary" className="text-sm py-1 px-3 bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+        {portfolioConfig.skills.map((skillCategory) => {
+          const IconComponent = skillCategory.icon || CheckCircle; // Use category icon or default
+          return (
+            <Card key={skillCategory.category} className="shadow-xl hover:shadow-2xl transition-shadow duration-300 border-border/50">
+              <CardHeader>
+                <CardTitle className="flex items-center text-xl text-primary">
+                  <IconComponent className="mr-3 h-6 w-6 text-accent" /> 
+                  {skillCategory.category}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {skillCategory.items.map((skill) => (
+                    <Badge key={skill} variant="secondary" className="text-sm py-1 px-3 bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
     </SectionWrapper>
   );
 }
+
+    
