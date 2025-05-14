@@ -5,15 +5,22 @@ export function AppLogo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 24 24"
-      fill="currentColor" // Inherits color from parent, e.g., text-primary
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
-      {...props} // Allows overriding size, className, etc.
+      {...props}
     >
-      {/* Abstract geometric logo: Hexagon with inner diamond */}
+      {/* Modified logo design: Hexagon with A monogram */}
       <path
-        d="M12 2L18.5 5.5L22 12L18.5 18.5L12 22L5.5 18.5L2 12L5.5 5.5L12 2Z M12 7.8L8.2 10L8.2 14L12 16.2L15.8 14L15.8 10L12 7.8Z"
+        d="M12 2L18.5 5.5L22 12L18.5 18.5L12 22L5.5 18.5L2 12L5.5 5.5L12 2Z"
         fillRule="evenodd"
         clipRule="evenodd"
+        opacity="0.9"
+      />
+      {/* Letter A */}
+      <path
+        d="M8 16V8L12 6L16 8V16L14 17V10L12 9L10 10V17L8 16Z"
+        fill="currentColor"
+        opacity="0.8"
       />
     </svg>
   );
