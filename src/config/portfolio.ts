@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Home, Wrench, Briefcase, BrainCircuit, Mail, Linkedin, Github, Twitter, Brain, Database, Code, Terminal, ShieldCheck, Users, Rocket, Lightbulb } from 'lucide-react';
+import { Home, Wrench, Briefcase, BrainCircuit, Mail, Linkedin, Github, Twitter, Brain, Database, Code, Terminal, ShieldCheck, Users, Rocket, Lightbulb, FileText, BarChart2, SearchCode, Bot, UserCheck, Cpu } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -11,15 +11,14 @@ export interface NavItem {
 export interface SkillCategory {
   category: string;
   items: string[];
-  icon?: LucideIcon; // Optional: if we want to add icons to skill categories
+  icon?: LucideIcon;
 }
 
 export interface Project {
   title: string;
   description: string;
   techStack: string[];
-  imageUrl: string;
-  imageHint: string;
+  icon?: LucideIcon; // Optional: specific icon for a project, defaults to a generic one (e.g., Layers)
   links: {
     live?: string;
     github?: string;
@@ -32,12 +31,11 @@ export interface PortfolioConfig {
   socialLinks: {
     linkedin: string;
     github: string;
-    // twitter?: string; // Twitter removed as per new info
   };
   contactEmail: string;
   hero: {
     titlePrefix: string;
-    name: string; // Main name for Hero section, e.g., "Abdullah"
+    name: string;
     subtitle: string;
     cta: string;
   };
@@ -50,7 +48,7 @@ export interface PortfolioConfig {
 }
 
 export const portfolioConfig: PortfolioConfig = {
-  name: "MUHAMMAD ABDULLAH", // Full name for sidebar header etc.
+  name: "MUHAMMAD ABDULLAH",
   professionalTitle: "Data Analyst | AI & ML Developer | Data Science Specialist",
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/muhammad-abdullah-ai-ml-developer/",
@@ -59,7 +57,7 @@ export const portfolioConfig: PortfolioConfig = {
   contactEmail: "abdullahcodewizard@gmail.com",
   hero: {
     titlePrefix: "Hi, I'm",
-    name: "Abdullah", // Prominent name in hero
+    name: "Abdullah",
     subtitle: "A Data Analyst and AI & Machine Learning Developer specializing in Python, Power BI, TensorFlow, and LangChain. I craft data-driven solutions and AI applications for e-commerce, healthcare, and beyond.",
     cta: "Contact Me",
   },
@@ -70,24 +68,19 @@ export const portfolioConfig: PortfolioConfig = {
       icon: Code,
     },
     {
-      category: "Frontend & UI Development",
-      items: ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Streamlit", "Gradio"],
-      icon: Rocket,
-    },
-    {
-      category: "Backend & API Development",
-      items: ["Node.js", "Express.js", "Python (Flask/Django)", "PHP"],
-      icon: Terminal,
-    },
-    {
       category: "AI & Machine Learning",
       items: ["TensorFlow", "Keras", "PyTorch", "Scikit-learn", "XGBoost", "LightGBM", "LangChain", "Vertex AI"],
       icon: Brain,
     },
     {
       category: "Data Science & Visualization",
-      items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "PowerBI"],
-      icon: Wrench, // Using Wrench as a general tool icon
+      items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly", "PowerBI", "Excel"],
+      icon: BarChart2, 
+    },
+    {
+      category: "Web Development & UI",
+      items: ["Streamlit", "Gradio", "HTML", "CSS", "JavaScript", "Next.js", "React", "Tailwind CSS"],
+      icon: Rocket,
     },
     {
       category: "Databases & Storage",
@@ -97,51 +90,79 @@ export const portfolioConfig: PortfolioConfig = {
     {
       category: "DevOps & Tools",
       items: ["Git & GitHub", "Docker", "Linux", "Google Colab", "Semgrep"],
-      icon: Terminal, // Re-using terminal, or could be a specific DevOps icon
+      icon: Terminal,
     },
     {
-      category: "Specializations & Methodologies",
-      items: ["NLP", "Image Processing", "AI Chatbots", "Agile Methodologies", "Generative AI"],
+      category: "Specializations",
+      items: ["NLP", "Image Processing", "AI Chatbots", "Generative AI", "Static Analysis"],
       icon: Lightbulb,
     },
+    {
+      category: "Methodologies",
+      items: ["Agile Methodologies", "Data-Driven Decision Making", "Custom Model Training"],
+      icon: Users, // Represents collaboration/process
+    }
   ],
   projects: [
     {
-      title: "E-commerce Sales Analysis (Amazon & Blinkit)",
-      description: "Analyzed sales data for Amazon and Blinkit using Excel, Python (Google Colab) for EDA & KPI identification, and PowerBI for professional dashboard creation.",
-      techStack: ["Excel", "Python", "Pandas", "Google Colab", "PowerBI", "Matplotlib", "Seaborn"],
-      imageUrl: "https://placehold.co/600x400.png",
-      imageHint: "sales dashboard",
+      title: "Blinkit Branch Sales Data Analyst",
+      description: "Excel Pivot Table for data exploration. Python and Google Colab for data Cleaning, EDA, KPI Findings and Visualizations.",
+      techStack: ["Excel", "Python", "Pandas", "Google Colab", "Matplotlib", "Seaborn"],
+      icon: BarChart2,
+      links: {},
+    },
+    {
+      title: "Amazon Sales Data Analyst",
+      description: "Perform Initial Decision from Excel Data Exploration. Do EDA and data cleaning with the help of the python and google Colab. Professional Dashboard with the help of the PowerBI.",
+      techStack: ["Excel", "Python", "PowerBI", "Pandas", "Google Colab"],
+      icon: BarChart2,
       links: {},
     },
     {
       title: "fMRI ASD Detection using Deep Learning",
       description: "Developed a CNN to analyze fMRI data for Autism Spectrum Disorder detection, including preprocessing of neuroimaging data and custom training.",
       techStack: ["Python", "TensorFlow", "NumPy", "Pandas", "Matplotlib", "Google Colab"],
-      imageUrl: "https://placehold.co/600x400.png",
-      imageHint: "fmri brain scan",
+      icon: Brain, // Icon for AI/Deep Learning
       links: {},
     },
     {
-      title: "Skin Cancer Classification with CNN & Streamlit",
+      title: "Skin Cancer Classification using CNNs",
       description: "Designed a CNN model to classify skin lesions. Implemented data augmentation, cross-validation, and a Streamlit app for real-time predictions.",
-      techStack: ["Python", "TensorFlow", "Keras", "OpenCV", "Streamlit", "Google Colab"],
-      imageUrl: "https://placehold.co/600x400.png",
-      imageHint: "skin cancer classification",
+      techStack: ["Python", "TensorFlow", "Keras", "OpenCV", "Streamlit", "Matplotlib", "Google Colab"],
+      icon: Cpu, // Icon for CV/medical imaging AI
       links: {},
     },
-    // Adding a fourth project from "Professional Highlights"
+    {
+      title: "Wheat Crop Disease Classification (Vision Transformers)",
+      description: "Built a transformer-based solution for identifying diseases in wheat crop images. Integrated a Gradio UI for farmers.",
+      techStack: ["PyTorch", "Vision Transformers", "Gradio", "Python"],
+      icon: Cpu, // Icon for CV/AgriTech AI
+      links: {},
+    },
+    {
+      title: "LLM Grep (Static Analysis + AI)",
+      description: "Static code analysis tool combining Semgrep with AI-driven analysis using LLMs.",
+      techStack: ["Python", "Semgrep", "LLM APIs", "Static Analysis"],
+      icon: SearchCode, // Icon for code analysis
+      links: {},
+    },
     {
       title: "Real Estate RAG ChatBot",
       description: "AI chatbot using Streamlit, LangChain, and Snowflake for handling real estate queries through Retrieval Augmented Generation.",
       techStack: ["Python", "Streamlit", "LangChain", "Snowflake", "Generative AI"],
-      imageUrl: "https://placehold.co/600x400.png",
-      imageHint: "chatbot real estate",
+      icon: Bot, // Icon for Chatbot
+      links: {},
+    },
+    {
+      title: "Personal Course Site Chatbot",
+      description: "Designed an AI chatbot to provide real-time support for users navigating an educational course site.",
+      techStack: ["Python", "LangChain", "NLP", "Generative AI"], // Assuming LangChain or similar
+      icon: Bot,
       links: {},
     }
   ],
   aiIntro: {
-    portfolioSummary: "I’m Muhammad Abdullah, a Data Analyst and AI/ML Developer currently pursuing a Bachelor of Computer Science at Superior University Lahore (expected Nov 2026). I hold professional certifications in Data Science (IBM) and Generative AI (Google Vertex AI). My passion lies in leveraging Python, Power BI, TensorFlow, and LangChain to build intelligent solutions, from e-commerce sales dashboards to AI chatbots, making a tangible impact in sectors like e-commerce and healthcare. My expertise in data analysis and machine learning fuels my work on innovative projects.",
+    portfolioSummary: "I’m Muhammad Abdullah, a Data Analyst and AI/ML Developer with a strong foundation in Python, Power BI, TensorFlow, and LangChain. I specialize in transforming data into actionable insights and developing intelligent applications, from e-commerce sales dashboards to sophisticated AI chatbots for real estate and education. My work in fMRI analysis for ASD detection and skin cancer classification showcases my ability to tackle complex challenges in healthcare AI. I am passionate about leveraging data science and machine learning to create impactful solutions and drive innovation.",
   },
   sidebarNav: [
     { title: "Home", href: "#hero", icon: Home },
@@ -155,7 +176,5 @@ export const portfolioConfig: PortfolioConfig = {
 export const socialIcons: { [key: string]: LucideIcon } = {
   linkedin: Linkedin,
   github: Github,
-  twitter: Twitter, // Keep twitter icon definition in case it's re-added later
+  twitter: Twitter,
 };
-
-    

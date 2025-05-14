@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -14,21 +15,28 @@ import { Button } from '@/components/ui/button';
 import { portfolioConfig, socialIcons } from '@/config/portfolio';
 import type { NavItem } from '@/config/portfolio';
 import { Separator } from './ui/separator';
+import { AppLogo } from '@/components/AppLogo'; // Import the new logo
 
 export default function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4 text-center">
         <Link href="#hero" className="block">
-          <h2 className="text-2xl font-bold text-primary group-data-[collapsible=icon]:hidden">
-            {portfolioConfig.name[0]}
-          </h2>
-           <h2 className="text-2xl font-bold text-primary hidden group-data-[collapsible=icon]:block">
-            {portfolioConfig.name.split(" ").map(n => n[0]).join("")}
-          </h2>
-          <p className="text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
-            {portfolioConfig.professionalTitle}
-          </p>
+          {/* Expanded View: Logo, Name, Title */}
+          <div className="group-data-[collapsible=icon]:hidden">
+            <AppLogo className="mx-auto h-10 w-10 text-primary mb-2" />
+            <h2 className="text-lg font-semibold text-primary">
+              {portfolioConfig.name}
+            </h2>
+            <p className="text-xs text-muted-foreground">
+              {portfolioConfig.professionalTitle}
+            </p>
+          </div>
+
+          {/* Collapsed View: Logo only */}
+          <div className="hidden group-data-[collapsible=icon]:block">
+            <AppLogo className="mx-auto h-8 w-8 text-primary" />
+          </div>
         </Link>
       </SidebarHeader>
       <SidebarContent>
