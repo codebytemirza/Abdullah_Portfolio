@@ -5,8 +5,8 @@ import SectionWrapper from '@/components/SectionWrapper';
 import { portfolioConfig, socialIcons } from '@/config/portfolio';
 
 export default function ContactSection() {
-  const firstPostUrn = "7256301017066074112"; // Existing post
-  const secondPostUrn = "7308550922782056449"; // New post from user request
+  const firstPostUrn = "7256301017066074112"; // Existing post - this will be the second embed
+  const secondPostUrn = "7256343551641325568"; // New post from user request - this will be the first embed
 
   return (
     <SectionWrapper id="contact" className="bg-background">
@@ -22,25 +22,25 @@ export default function ContactSection() {
           <div className="w-full flex justify-center">
             <iframe 
               src={`https://www.linkedin.com/embed/feed/update/urn:li:share:${secondPostUrn}`}
-              height="650" // Adjusted height for better page fit
-              width="504" // Max width of the embed
+              height="582" // Updated height from user's new iframe
+              width="504" 
               frameBorder="0" 
               allowFullScreen={true}
-              title="Embedded LinkedIn Post 2"
+              title="Embedded post" // Updated title from user's new iframe
               className="max-w-full w-[504px] rounded-lg shadow-xl border border-border/50"
-              style={{maxWidth: '504px', width: '100%'}} // Ensures responsiveness
+              style={{maxWidth: '504px', width: '100%'}}
             ></iframe>
           </div>
           <div className="w-full flex justify-center">
             <iframe 
               src={`https://www.linkedin.com/embed/feed/update/urn:li:share:${firstPostUrn}`}
-              height="650" // Adjusted height for better page fit
-              width="504" // Max width of the embed
+              height="650" // Kept original height for this embed
+              width="504" 
               frameBorder="0" 
               allowFullScreen={true}
               title="Embedded LinkedIn Post 1"
               className="max-w-full w-[504px] rounded-lg shadow-xl border border-border/50"
-              style={{maxWidth: '504px', width: '100%'}} // Ensures responsiveness
+              style={{maxWidth: '504px', width: '100%'}}
             ></iframe>
           </div>
         </div>
@@ -78,4 +78,3 @@ export default function ContactSection() {
     </SectionWrapper>
   );
 }
-
