@@ -1,6 +1,6 @@
 
 import type { LucideIcon } from 'lucide-react';
-import { Home, Wrench, Briefcase, BrainCircuit, Mail, Linkedin, Github, Twitter, Brain, Database, Code, Terminal, ShieldCheck, Users, Rocket, Lightbulb, FileText, BarChart2, SearchCode, Bot, UserCheck, Cpu } from 'lucide-react';
+import { Home, Wrench, Briefcase, BrainCircuit, Mail, Linkedin, Github, Twitter, Brain, Database, Code, Terminal, ShieldCheck, Users, Rocket, Lightbulb, FileText, BarChart2, SearchCode, Bot, UserCheck, Cpu, Building, Phone, MapPin } from 'lucide-react';
 
 export interface NavItem {
   title: string;
@@ -28,11 +28,16 @@ export interface Project {
 export interface PortfolioConfig {
   name: string;
   professionalTitle: string;
+  address: string;
+  phone: string;
+  idCard?: string; // Optional as it's sensitive
   socialLinks: {
     linkedin: string;
     github: string;
+    // twitter?: string; // Add if you have a Twitter/X link
   };
   contactEmail: string;
+  summary: string;
   hero: {
     titlePrefix: string;
     name: string;
@@ -41,6 +46,15 @@ export interface PortfolioConfig {
   };
   skills: SkillCategory[];
   projects: Project[];
+  professionalHighlights?: Array<{ title: string; description: string; icon?: LucideIcon }>; // Optional section
+  education: {
+    degree: string;
+    university: string;
+    period: string;
+    relevantCoursework?: string[];
+    icon?: LucideIcon;
+  };
+  certifications?: Array<{ name: string; issuingOrganization: string; year: string; link?: string; icon?: LucideIcon }>;
   aiIntro: {
     portfolioSummary: string;
   };
@@ -49,17 +63,21 @@ export interface PortfolioConfig {
 
 export const portfolioConfig: PortfolioConfig = {
   name: "MUHAMMAD ABDULLAH",
-  professionalTitle: "Data Analyst | AI & ML Developer | Data Science Specialist",
+  professionalTitle: "Data Analyst | AI & Machine Learning Developer | Data Science Specialist",
+  address: "Quetta Textile Mill Pvt. Ltd., 45KM, Multan Road, Lahore",
+  phone: "+923284119134",
+  idCard: "3650107801579", // Consider if you want this publicly visible
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/muhammad-abdullah-ai-ml-developer/",
     github: "https://github.com/codebytemirza",
   },
   contactEmail: "abdullahcodewizard@gmail.com",
+  summary: "I’m a data analyst and data scientist who enjoys working on AI and generative AI projects with tools like Python, Power BI, TensorFlow, and LangChain. I make things like sales dashboards for Amazon and Blinkit or AI chatbots for real estate and education, which help people in e-commerce, healthcare, and other areas. My skills in data analysis and machine learning let me work on cool projects that make a difference.",
   hero: {
     titlePrefix: "Hi, I'm",
     name: "Abdullah",
     subtitle: "A Data Analyst and AI & Machine Learning Developer specializing in Python, Power BI, TensorFlow, and LangChain. I craft data-driven solutions and AI applications for e-commerce, healthcare, and beyond.",
-    cta: "Contact Me",
+    cta: "Connect on LinkedIn", // Changed CTA to be more specific
   },
   skills: [
     {
@@ -78,30 +96,25 @@ export const portfolioConfig: PortfolioConfig = {
       icon: BarChart2, 
     },
     {
-      category: "Web Development & UI",
-      items: ["Streamlit", "Gradio", "HTML", "CSS", "JavaScript", "Next.js", "React", "Tailwind CSS"],
+      category: "Web Development",
+      items: ["Streamlit", "Gradio", "Next.js", "React", "Tailwind CSS"],
       icon: Rocket,
     },
     {
-      category: "Databases & Storage",
-      items: ["PostgreSQL", "MongoDB", "SQL Server", "Snowflake", "Firebase"],
+      category: "Data Management",
+      items: ["Snowflake", "MongoDB", "SQL Server", "PostgreSQL", "Firebase"], // Added from your resume
       icon: Database,
     },
     {
       category: "DevOps & Tools",
-      items: ["Git & GitHub", "Docker", "Linux", "Google Colab", "Semgrep"],
+      items: ["Docker", "Linux", "Git & GitHub", "Google Colab", "Semgrep"],
       icon: Terminal,
     },
-    {
-      category: "Specializations",
-      items: ["NLP", "Image Processing", "AI Chatbots", "Generative AI", "Static Analysis"],
+     {
+      category: "Other Skills",
+      items: ["NLP", "Image Processing", "AI Chatbots", "Agile Methodologies", "Static Analysis", "Data-Driven Decision Making", "Custom Model Training"],
       icon: Lightbulb,
     },
-    {
-      category: "Methodologies",
-      items: ["Agile Methodologies", "Data-Driven Decision Making", "Custom Model Training"],
-      icon: Users, // Represents collaboration/process
-    }
   ],
   projects: [
     {
@@ -113,7 +126,7 @@ export const portfolioConfig: PortfolioConfig = {
     },
     {
       title: "Amazon Sales Data Analyst",
-      description: "Perform Initial Decision from Excel Data Exploration. Do EDA and data cleaning with the help of the python and google Colab. Professional Dashboard with the help of the PowerBI.",
+      description: "Performed Initial Decision from Excel Data Exploration. Did EDA and data cleaning with Python and Google Colab. Professional Dashboard with PowerBI.",
       techStack: ["Excel", "Python", "PowerBI", "Pandas", "Google Colab"],
       icon: BarChart2,
       links: {},
@@ -122,43 +135,98 @@ export const portfolioConfig: PortfolioConfig = {
       title: "fMRI ASD Detection using Deep Learning",
       description: "Developed a CNN to analyze fMRI data for Autism Spectrum Disorder detection, including preprocessing of neuroimaging data and custom training.",
       techStack: ["Python", "TensorFlow", "NumPy", "Pandas", "Matplotlib", "Google Colab"],
-      icon: Brain, // Icon for AI/Deep Learning
+      icon: Brain,
       links: {},
     },
     {
       title: "Skin Cancer Classification using CNNs",
       description: "Designed a CNN model to classify skin lesions. Implemented data augmentation, cross-validation, and a Streamlit app for real-time predictions.",
       techStack: ["Python", "TensorFlow", "Keras", "OpenCV", "Streamlit", "Matplotlib", "Google Colab"],
-      icon: Cpu, // Icon for CV/medical imaging AI
+      icon: Cpu,
       links: {},
     },
     {
       title: "Wheat Crop Disease Classification (Vision Transformers)",
       description: "Built a transformer-based solution for identifying diseases in wheat crop images. Integrated a Gradio UI for farmers.",
       techStack: ["PyTorch", "Vision Transformers", "Gradio", "Python"],
-      icon: Cpu, // Icon for CV/AgriTech AI
+      icon: Cpu,
       links: {},
     },
+     {
+      title: "Scrape Graph for Business Targeting",
+      description: "Built a scraping tool to extract and save business data from Google Maps for marketing strategies.",
+      techStack: ["Python", "Web Scraping"], // Simplified tech stack
+      icon: SearchCode,
+      links: {},
+    },
+    {
+      title: "Chatbot for Personal Course Site",
+      description: "Designed an AI chatbot to provide real-time support for users navigating an educational course site.",
+      techStack: ["Python", "LangChain", "NLP", "Generative AI"],
+      icon: Bot,
+      links: {},
+    }
+  ],
+  professionalHighlights: [
     {
       title: "LLM Grep (Static Analysis + AI)",
       description: "Static code analysis tool combining Semgrep with AI-driven analysis using LLMs.",
-      techStack: ["Python", "Semgrep", "LLM APIs", "Static Analysis"],
-      icon: SearchCode, // Icon for code analysis
-      links: {},
+      icon: SearchCode,
+    },
+    {
+      title: "Email Management Python Script with LLM",
+      description: "Developed a script to manage emails, leveraging LLMs for intelligent processing.", // Reworded based on understanding
+      icon: Mail,
+    },
+    {
+      title: "Heart Risk Prediction App",
+      description: "Delivered a robust application for heart disease risk prediction based on user-provided health metrics.",
+      icon: Cpu, // Or a health-related icon if available
     },
     {
       title: "Real Estate RAG ChatBot",
-      description: "AI chatbot using Streamlit, LangChain, and Snowflake for handling real estate queries through Retrieval Augmented Generation.",
-      techStack: ["Python", "Streamlit", "LangChain", "Snowflake", "Generative AI"],
-      icon: Bot, // Icon for Chatbot
-      links: {},
+      description: "Created an AI chatbot with Streamlit UI and LangChain for real estate query handling, integrated with Snowflake.",
+      icon: Bot,
     },
     {
-      title: "Personal Course Site Chatbot",
-      description: "Designed an AI chatbot to provide real-time support for users navigating an educational course site.",
-      techStack: ["Python", "LangChain", "NLP", "Generative AI"], // Assuming LangChain or similar
-      icon: Bot,
-      links: {},
+      title: "Predictive Analysis for Employment Outcomes",
+      description: "Conducted EDA and predictive modeling to evaluate how language proficiency, age, and regional factors influence employment.",
+      icon: BarChart2,
+    },
+     {
+      title: "Deep Learning Assignments",
+      description: "Completed various deep learning assignments for different student clients.",
+      icon: Lightbulb,
+    }
+  ],
+  education: {
+    degree: "Bachelor of Computer Science",
+    university: "Superior University Lahore",
+    period: "Nov 2022 - Expected Nov 2026",
+    relevantCoursework: ["Programming Fundamentals", "OOP", "Data Structures", "Databases", "Web Application Development", "Digital Image Processing", "Theory of Programming Languages", "Intro to Software Engineering"],
+    icon: Building, // Icon for education
+  },
+  certifications: [
+    {
+      name: "Professional Data Science Certificate",
+      issuingOrganization: "IBM",
+      year: "2024",
+      link: "https://coursera.org/share/62f76eff0094675130d0561a45edd5cd",
+      icon: FileText,
+    },
+    {
+      name: "Generative AI Explorer – Vertex AI",
+      issuingOrganization: "Google", // Inferred
+      year: "2025", // Assuming this is correct
+      link: undefined, // Add link if available
+      icon: BrainCircuit,
+    },
+    {
+      name: "PowerBI Data Competencies", // Simplified name
+      issuingOrganization: "Microsoft", // Inferred
+      year: "N/A", // Add year if known
+      link: "https://learn.microsoft.com/en-us/users/mirzaabdullah-9135/",
+      icon: BarChart2,
     }
   ],
   aiIntro: {
@@ -168,6 +236,8 @@ export const portfolioConfig: PortfolioConfig = {
     { title: "Home", href: "#hero", icon: Home },
     { title: "Skills", href: "#skills", icon: Wrench },
     { title: "Projects", href: "#projects", icon: Briefcase },
+    // { title: "Highlights", href: "#highlights", icon: Star }, // Example, if you add a highlights section
+    // { title: "Education", href: "#education", icon: GraduationCap }, // Example
     { title: "AI Intro", href: "#ai-intro", icon: BrainCircuit },
     { title: "Contact", href: "#contact", icon: Mail },
   ],
@@ -177,4 +247,7 @@ export const socialIcons: { [key: string]: LucideIcon } = {
   linkedin: Linkedin,
   github: Github,
   twitter: Twitter,
+  email: Mail,
+  phone: Phone,
+  address: MapPin,
 };
